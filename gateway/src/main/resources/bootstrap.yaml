@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        # 路由ID
+      - id: sa-client
+        # 转发目标
+        # lb 表示为目标为服务, lb://{serviceId}
+        uri: lb://SA/
+        #  匹配条件
+        predicates:
+        - Path=/_sa/**
+        # 转发前处理
+        filters:
+        # 去除请求中的`/_sa`
+        - StripPrefix=1
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://register.hocgin.dev:9011/eureka
+    register-with-eureka: false
+
+server:
+  port: 9000

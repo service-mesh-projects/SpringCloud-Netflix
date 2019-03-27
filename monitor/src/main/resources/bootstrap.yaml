@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: monitor
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://register.hocgin.dev:9011/eureka
+    register-with-eureka: false
+
+server:
+  port: 9001

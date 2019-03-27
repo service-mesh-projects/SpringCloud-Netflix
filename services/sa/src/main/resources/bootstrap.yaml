@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: sa
+server:
+  port: 9101
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://register.hocgin.dev:9011/eureka
+
+feign:
+  hystrix:
+    enabled: true
